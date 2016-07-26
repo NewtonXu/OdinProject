@@ -1,6 +1,12 @@
 <h1><%= @articles.title %></h1>
 <p><%= @articles.body %></p>
 
+<p>
+  <% if @articles.image.exists? %>
+    <%= image_tag @articles.image.url %> <br />
+  <% end %>
+</p>
+
 <%= link_to "<< Back to Articles List", articles_path %>
 <%= link_to "Delete", article_path(@articles), method: :delete, data: {confirm: "Really delete the article?"}%>
 <%= link_to "edit", edit_article_path(@articles) %>
