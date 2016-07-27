@@ -8,9 +8,11 @@
 </p>
 
 <%= link_to "<< Back to Articles List", articles_path %>
+
+<%if logged_in? %>
 <%= link_to "Delete", article_path(@articles), method: :delete, data: {confirm: "Really delete the article?"}%>
 <%= link_to "edit", edit_article_path(@articles) %>
-
+<% end %>
 <p>
   Tags:
   <% @articles.tags.each do |tag| %>
